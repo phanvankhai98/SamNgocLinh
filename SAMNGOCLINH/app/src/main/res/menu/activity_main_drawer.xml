@@ -2,37 +2,46 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:id="@+id/nav_weather"
+            android:icon="@mipmap/weather"
+            android:title="@string/weather" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_upload"
+            android:icon="@mipmap/upload"
+            android:title="@string/upload_image" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_advice"
+            android:icon="@mipmap/advice"
+            android:title="@string/advice" />
         <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_tools" />
+            android:id="@+id/nav_climate"
+            android:icon="@mipmap/climate"
+            android:title="@string/climate" />
+        <item
+            android:id="@+id/nav_price"
+            android:icon="@mipmap/price_tag"
+            android:title="@string/price" />
+        <item
+            android:id="@+id/nav_buy"
+            android:icon="@mipmap/market"
+            android:title="@string/market" />
+        <item
+            android:id="@+id/nav_worm"
+            android:icon="@mipmap/worm"
+            android:title="@string/worm" />
+        <item
+            android:id="@+id/nav_question_answer"
+            android:icon="@mipmap/question"
+            android:title="@string/question" />
+        <item
+            android:id="@+id/nav_scan_qr"
+            android:icon="@mipmap/qr_scan"
+            android:title="@string/scan_QR" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@mipmap/logout"
+            android:title="@string/logout" />
     </group>
-
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
-        </menu>
-    </item>
-
 </menu>
