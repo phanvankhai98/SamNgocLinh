@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         initView();
         getToolbarTitle();
+        setToolbarTitle();
     }
 
     private void initView() {
@@ -188,6 +189,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void setToolbarTitle() {
-        if(mToolbar!=null) mToolbar.setTitle(mToolbarTitle.get(mCurrentTag));
+        getSupportActionBar().setTitle(mToolbarTitle.get(mCurrentTag));
     }
 }

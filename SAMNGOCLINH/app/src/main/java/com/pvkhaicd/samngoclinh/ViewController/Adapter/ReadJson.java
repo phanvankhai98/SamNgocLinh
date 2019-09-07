@@ -2,7 +2,7 @@ package com.pvkhaicd.samngoclinh.ViewController.Adapter;
 
 import android.content.Context;
 
-import com.pvkhaicd.samngoclinh.Model.ClimateNews;
+import com.pvkhaicd.samngoclinh.Model.pojo.ClimateNews;
 import com.pvkhaicd.samngoclinh.R;
 
 import org.json.JSONArray;
