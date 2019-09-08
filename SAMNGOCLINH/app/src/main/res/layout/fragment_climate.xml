@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="#ffff"
     tools:context=".ViewController.Climate.ClimateFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/climate" />
+        android:layout_height="wrap_content"
+        android:background="#FFEB3B"
+        android:textSize="12sp"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="Gửi đến bạn thông tin về biến đổi khí hậu để tham khảo"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="10dp"
+        />
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
 
-</FrameLayout>
+</LinearLayout>
