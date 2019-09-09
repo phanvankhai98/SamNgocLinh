@@ -1,7 +1,6 @@
 package com.pvkhaicd.samngoclinh.ViewController.Climate;
 
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,12 +10,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.pvkhaicd.samngoclinh.Model.ClimateNews;
+import com.pvkhaicd.samngoclinh.Model.pojo.ClimateNews;
 import com.pvkhaicd.samngoclinh.R;
 import com.pvkhaicd.samngoclinh.ViewController.Adapter.ReadJson;
-import com.pvkhaicd.samngoclinh.ViewController.MainActivity;
 
 import java.util.ArrayList;
 
