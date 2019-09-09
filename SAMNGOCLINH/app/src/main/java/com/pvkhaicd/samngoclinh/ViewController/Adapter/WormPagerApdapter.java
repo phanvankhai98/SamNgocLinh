@@ -36,4 +36,9 @@ public class WormPagerApdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
         return title[position];
     }
+
+    void setAdapter(ArrayList data){
+        this.data = data;
+        notifyDataSetChanged();
+    }
 }

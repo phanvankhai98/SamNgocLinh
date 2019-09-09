@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +14,21 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.pvkhaicd.samngoclinh.Model.Climate;
+import com.pvkhaicd.samngoclinh.Model.ClimateN;
 import com.pvkhaicd.samngoclinh.Model.ClimateNews;
+import com.pvkhaicd.samngoclinh.Network.APIService;
+import com.pvkhaicd.samngoclinh.Network.RetrofitClient;
 import com.pvkhaicd.samngoclinh.R;
 import com.pvkhaicd.samngoclinh.ViewController.Adapter.ReadJson;
 import com.pvkhaicd.samngoclinh.ViewController.MainActivity;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,7 +36,8 @@ import java.util.ArrayList;
 public class ClimateFragment extends Fragment {
 
     ListView listView;
-    ArrayList<ClimateNews> arrayList = new ArrayList<ClimateNews>();
+    ArrayAdapter arrayAdapter;
+    List<Climate> arrayList = new ArrayList<Climate>();
 
     public ClimateFragment() {
         // Required empty public constructor
@@ -38,7 +49,8 @@ public class ClimateFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_climate, container, false);
-        arrayList = ReadJson.readClimateNews(getContext());
+//        arrayList = ReadJson.readClimateNews(getContext());
+        requestGetClimateNews();
         ArrayList<String> listTitle = new ArrayList<>();
         for (int i = 0; i <arrayList.size() ; i++) {
             listTitle.add(arrayList.get(i).getTitle());
@@ -52,7 +64,8 @@ public class ClimateFragment extends Fragment {
     }
 
     private void configListView(ArrayList<String> listTitle) {
-        ArrayAdapter arrayAdapter = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,listTitle);
+
+        arrayAdapter = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,listTitle);
         listView.setAdapter(arrayAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -68,4 +81,23 @@ public class ClimateFragment extends Fragment {
         listView = view.findViewById(R.id.list_view);
     }
 
+    void requestGetClimateNews(){
+        RetrofitClient.getCilent().create(APIService.class)
+                .getClimateNews().enqueue(new Callback<ClimateN>() {
+            @Override
+            public void onResponse(Call<ClimateN> call, Response<ClimateN> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(getContext(), "oke", Toast.LENGTH_SHORT).show();
+                    arrayList = response.body().getClimate();
+                    arrayAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ClimateN> call, Throwable t) {
+                Log.i("AA", t.getMessage());
+                Toast.makeText(getActivity(), "Đã có lỗi xảy ra", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }
