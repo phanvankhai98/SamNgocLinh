@@ -1,7 +1,6 @@
 package com.pvkhaicd.samngoclinh.ViewController.Climate;
 
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,19 +12,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.pvkhaicd.samngoclinh.Model.Climate;
 import com.pvkhaicd.samngoclinh.Model.ClimateN;
-import com.pvkhaicd.samngoclinh.Model.ClimateNews;
 import com.pvkhaicd.samngoclinh.Network.APIService;
 import com.pvkhaicd.samngoclinh.Network.RetrofitClient;
 import com.pvkhaicd.samngoclinh.R;
-import com.pvkhaicd.samngoclinh.ViewController.Adapter.ReadJson;
-import com.pvkhaicd.samngoclinh.ViewController.MainActivity;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

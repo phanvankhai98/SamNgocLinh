@@ -6,9 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.pvkhaicd.samngoclinh.Model.ClimateNews;
+import com.pvkhaicd.samngoclinh.Model.pojo.ClimateNews;
 import com.pvkhaicd.samngoclinh.R;
 
 public class ClimateDetailActivity extends AppCompatActivity {

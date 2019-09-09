@@ -1,4 +1,4 @@
-package com.pvkhaicd.samngoclinh.Model;
+package com.pvkhaicd.samngoclinh.Model.pojo;
 
 import java.io.Serializable;
 

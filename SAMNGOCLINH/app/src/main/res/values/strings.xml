@@ -27,4 +27,10 @@
     <string name="scan_QR">Mã QR</string>
     <string name="logout">Đăng xuất</string>
 
+    <string name="question_status_true">Đã trả lời</string>
+    <string name="question_status_false">Chưa trả lời</string>
+    <string name="demo_question_date">20/03/2019 8:00 PM</string>
+    <string name="publisher_name">Đăng bởi:</string>
+    <string name="menu_title_search_question">Search Question</string>
+
 </resources>
