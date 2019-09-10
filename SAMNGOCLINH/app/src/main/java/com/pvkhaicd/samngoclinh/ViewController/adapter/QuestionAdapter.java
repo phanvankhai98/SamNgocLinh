@@ -10,7 +10,7 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
 
-import com.pvkhaicd.samngoclinh.Model.pojo.Question;
+import com.pvkhaicd.samngoclinh.Model.Question;
 import com.pvkhaicd.samngoclinh.R;
 
 import java.util.ArrayList;

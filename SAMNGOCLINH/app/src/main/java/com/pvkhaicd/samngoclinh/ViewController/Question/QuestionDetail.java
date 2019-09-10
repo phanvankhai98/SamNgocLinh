@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pvkhaicd.samngoclinh.R;
-import com.pvkhaicd.samngoclinh.Model.pojo.Question;
+import com.pvkhaicd.samngoclinh.Model.Question;
 
 public class QuestionDetail extends AppCompatActivity {
 

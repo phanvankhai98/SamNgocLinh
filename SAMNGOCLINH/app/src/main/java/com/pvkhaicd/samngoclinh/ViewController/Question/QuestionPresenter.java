@@ -1,8 +1,9 @@
 package com.pvkhaicd.samngoclinh.ViewController.Question;
 
-import com.pvkhaicd.samngoclinh.Model.pojo.Question;
-import com.pvkhaicd.samngoclinh.Model.remote.QuestionService;
-import com.pvkhaicd.samngoclinh.Model.remote.RetrofitClient;
+import com.pvkhaicd.samngoclinh.Model.Question;
+import com.pvkhaicd.samngoclinh.Network.APIService;
+import com.pvkhaicd.samngoclinh.Network.RetrofitClient;
+
 
 import java.util.List;
 
@@ -12,11 +13,11 @@ import retrofit2.Response;
 
 public class QuestionPresenter implements QuestionContact.Presenter {
 
-    private QuestionService mService;
+    private APIService mService;
     private QuestionContact.View mView;
 
     public QuestionPresenter(QuestionContact.View view) {
-        mService = RetrofitClient.getClient().create(QuestionService.class);
+        mService = RetrofitClient.getClient().create(APIService.class);
         mView = view;
     }
 

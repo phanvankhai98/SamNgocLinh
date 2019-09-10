@@ -20,7 +20,7 @@ import android.widget.Toast;
 import com.pvkhaicd.samngoclinh.R;
 import com.pvkhaicd.samngoclinh.ViewController.Adapter.OnItemClickListener;
 import com.pvkhaicd.samngoclinh.ViewController.Adapter.QuestionAdapter;
-import com.pvkhaicd.samngoclinh.Model.pojo.Question;
+import com.pvkhaicd.samngoclinh.Model.Question;
 
 import java.util.List;
 
