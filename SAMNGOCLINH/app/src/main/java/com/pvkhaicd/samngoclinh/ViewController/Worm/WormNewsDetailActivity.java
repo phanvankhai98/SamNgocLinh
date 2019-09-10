@@ -1,4 +1,4 @@
-package com.pvkhaicd.samngoclinh.ViewController.Climate;
+package com.pvkhaicd.samngoclinh.ViewController.Worm;
 
 import android.content.Intent;
 import android.support.v4.text.HtmlCompat;
@@ -6,12 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
-
-import com.pvkhaicd.samngoclinh.Model.Climate;
-import com.pvkhaicd.samngoclinh.Model.ClimateNews;
+import com.pvkhaicd.samngoclinh.Model.WormNewsEvent.Worm;
 import com.pvkhaicd.samngoclinh.R;
 
-public class ClimateDetailActivity extends AppCompatActivity {
+public class WormNewsDetailActivity  extends AppCompatActivity{
     Toolbar toolbar;
     TextView textView;
 
@@ -23,7 +21,7 @@ public class ClimateDetailActivity extends AppCompatActivity {
         init();
         configToolbar();
         Intent intent = getIntent();
-        Climate item = (Climate) intent.getSerializableExtra("data");
+        Worm item = (Worm) intent.getSerializableExtra("data");
         textView.setText(HtmlCompat.fromHtml(item.getContent(),0) );
     }
     @Override
@@ -31,7 +29,7 @@ public class ClimateDetailActivity extends AppCompatActivity {
         onBackPressed();
         return true;
     }
-    
+
     private void configToolbar() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

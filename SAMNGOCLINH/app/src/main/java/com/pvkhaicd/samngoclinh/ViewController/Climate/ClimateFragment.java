@@ -13,7 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.pvkhaicd.samngoclinh.Model.Climate;
-import com.pvkhaicd.samngoclinh.Model.ClimateN;
+import com.pvkhaicd.samngoclinh.Model.ClimateNews;
 import com.pvkhaicd.samngoclinh.Network.APIService;
 import com.pvkhaicd.samngoclinh.Network.RetrofitClient;
 import com.pvkhaicd.samngoclinh.R;
@@ -31,7 +31,7 @@ public class ClimateFragment extends Fragment {
     ListView listView;
     ArrayAdapter arrayAdapter;
     List<Climate> arrayList = new ArrayList<Climate>();
-
+    ArrayList<String> listTitle;
     public ClimateFragment() {
         // Required empty public constructor
     }
@@ -44,7 +44,8 @@ public class ClimateFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_climate, container, false);
 //        arrayList = ReadJson.readClimateNews(getContext());
         requestGetClimateNews();
-        ArrayList<String> listTitle = new ArrayList<>();
+
+        listTitle = new ArrayList<>();
         for (int i = 0; i <arrayList.size() ; i++) {
             listTitle.add(arrayList.get(i).getTitle());
         }
@@ -76,18 +77,20 @@ public class ClimateFragment extends Fragment {
 
     void requestGetClimateNews(){
         RetrofitClient.getCilent().create(APIService.class)
-                .getClimateNews().enqueue(new Callback<ClimateN>() {
+                .getClimateNews().enqueue(new Callback<ClimateNews>() {
             @Override
-            public void onResponse(Call<ClimateN> call, Response<ClimateN> response) {
+            public void onResponse(Call<ClimateNews> call, Response<ClimateNews> response) {
                 if(response.isSuccessful()){
-                    Toast.makeText(getContext(), "oke", Toast.LENGTH_SHORT).show();
                     arrayList = response.body().getClimate();
+                    for (int i = 0; i <arrayList.size() ; i++) {
+                        listTitle.add(arrayList.get(i).getTitle());
+                    }
                     arrayAdapter.notifyDataSetChanged();
                 }
             }
 
             @Override
-            public void onFailure(Call<ClimateN> call, Throwable t) {
+            public void onFailure(Call<ClimateNews> call, Throwable t) {
                 Log.i("AA", t.getMessage());
                 Toast.makeText(getActivity(), "Đã có lỗi xảy ra", Toast.LENGTH_SHORT).show();
             }

@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
     public static Retrofit retrofit=null;
-    public static String BaseUrl="http://5d725e905acf5e0014730dec.mockapi.io/api/";
+    public static String BaseUrl="https://5d725e905acf5e0014730dec.mockapi.io/api/";
 
 
     public static Retrofit getCilent(){
