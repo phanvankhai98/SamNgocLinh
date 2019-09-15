@@ -1,14 +1,14 @@
 package com.pvkhaicd.samngoclinh.ViewController;
 
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.navigation.NavigationView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -18,6 +18,7 @@ import com.pvkhaicd.samngoclinh.ViewController.Climate.ClimateFragment;
 import com.pvkhaicd.samngoclinh.ViewController.Market.MarketFragment;
 import com.pvkhaicd.samngoclinh.ViewController.Price.PriceFragment;
 import com.pvkhaicd.samngoclinh.ViewController.Question.QuestionFragment;
+import com.pvkhaicd.samngoclinh.ViewController.UploadImage.UploadImageFragment;
 import com.pvkhaicd.samngoclinh.ViewController.WeatherInfo.WeatherFragment;
 import com.pvkhaicd.samngoclinh.ViewController.Worm.WormFragment;
 
@@ -146,7 +147,7 @@ public class MainActivity extends AppCompatActivity
                 fragment = new WeatherFragment();
                 break;
             case TAG_UPLOAD_IMG:
-                Toast.makeText(this, "upload anh", Toast.LENGTH_SHORT).show();
+                fragment = new UploadImageFragment();
                 break;
             case TAG_FERTILIZER_ADVICE:
                 fragment = new AdviceFragment();

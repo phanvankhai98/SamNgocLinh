@@ -1,14 +1,13 @@
 package com.pvkhaicd.samngoclinh.ViewController.Climate;
 
 import android.content.Intent;
-import android.support.v4.text.HtmlCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.text.HtmlCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.widget.TextView;
 
 import com.pvkhaicd.samngoclinh.Model.Climate;
-import com.pvkhaicd.samngoclinh.Model.ClimateNews;
 import com.pvkhaicd.samngoclinh.R;
 
 public class ClimateDetailActivity extends AppCompatActivity {
