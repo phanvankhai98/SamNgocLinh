@@ -8,4 +8,5 @@
     <color name="black">#000000</color>
     <color name="color_green_light">#8BC34A</color>
     <color name="defaultbackground">#f3f4f6</color>
+    <color name="blue">#03A9F4</color>
 </resources>
