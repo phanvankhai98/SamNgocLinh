@@ -179,6 +179,7 @@ public class MainActivity extends AppCompatActivity
     private void getToolbarTitle() {
         mToolbarTitle = new HashMap<>();
         mToolbarTitle.put(TAG_HOME, getResources().getString(R.string.app_name));
+        mToolbarTitle.put(TAG_MARKET, getResources().getString(R.string.market));
         mToolbarTitle.put(TAG_WEATHER, getResources().getString(R.string.weather));
         mToolbarTitle.put(TAG_UPLOAD_IMG, getResources().getString(R.string.upload_image));
         mToolbarTitle.put(TAG_FERTILIZER_ADVICE, getResources().getString(R.string.advice));
