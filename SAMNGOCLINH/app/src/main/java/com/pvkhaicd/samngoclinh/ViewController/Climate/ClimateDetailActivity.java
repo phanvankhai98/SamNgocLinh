@@ -8,6 +8,8 @@ import androidx.appcompat.widget.Toolbar;
 import android.widget.TextView;
 
 import com.pvkhaicd.samngoclinh.Model.Climate;
+import com.pvkhaicd.samngoclinh.Model.ClimateNews;
+
 import com.pvkhaicd.samngoclinh.R;
 
 public class ClimateDetailActivity extends AppCompatActivity {

@@ -32,5 +32,16 @@
     <string name="demo_question_date">20/03/2019 8:00 PM</string>
     <string name="publisher_name">Đăng bởi:</string>
     <string name="menu_title_search_question">Search Question</string>
+    <string name="text_market_guide">Diễn đàn này cung cấp thông tin nhu cầu mua bán.Nếu bà con muốn thực hiện giao dịch, vui lòng liên hệ trực tiếp theo số điện thoại đã cung cấp.Xin cảm ơn!</string>
+
+    <!-- market pager title -->
+    <string name="title_purchase">Danh sách tin mua</string>
+    <string name="title_sell">Danh sách tin bán</string>
+    <string name="button_title_purchase">Đăng tin mua</string>
+    <string name="button_title_sell">Đăng tin bán</string>
+    <string name="text_demo_tinh">Tỉnh: </string>
+
+    <!--market post news -->
+    <string name="error_input">Trường này không được để trống</string>
 
 </resources>

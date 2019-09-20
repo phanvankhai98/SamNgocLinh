@@ -1,8 +1,6 @@
-package com.pvkhaicd.samngoclinh.ViewController.Adapter;
+package com.pvkhaicd.samngoclinh.ViewController.Adapter.question;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +8,13 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
 
-import com.pvkhaicd.samngoclinh.Model.pojo.Question;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.pvkhaicd.samngoclinh.Model.Question;
 import com.pvkhaicd.samngoclinh.R;
+import com.pvkhaicd.samngoclinh.ViewController.Adapter.BaseAdapter;
+import com.pvkhaicd.samngoclinh.ViewController.Adapter.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;

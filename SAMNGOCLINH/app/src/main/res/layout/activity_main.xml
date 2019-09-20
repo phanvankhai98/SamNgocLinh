@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             app:titleTextColor="@color/white"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/blue"
+            android:background="@color/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         <FrameLayout
@@ -34,6 +34,8 @@
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        app:itemTextColor="@color/black"
+        app:itemIconTint="@color/black"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
