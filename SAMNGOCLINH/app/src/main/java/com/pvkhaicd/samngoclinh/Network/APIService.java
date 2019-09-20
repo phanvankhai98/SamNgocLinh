@@ -11,6 +11,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
+
 public interface APIService {
     @GET("climatenews")
     Call<ClimateNews> getClimateNews();
@@ -23,6 +24,4 @@ public interface APIService {
 
     @GET("questions")
     Call<Question> getQuestionDetail(@Path("id") int id);
-
-
 }

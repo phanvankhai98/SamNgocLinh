@@ -1,13 +1,14 @@
 package com.pvkhaicd.samngoclinh.ViewController.Worm;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
 
 import com.pvkhaicd.samngoclinh.Model.WormNewsEvent.Worm;
 import com.pvkhaicd.samngoclinh.Model.WormNewsEvent.WormNews;
@@ -25,7 +26,7 @@ import retrofit2.Response;
 
 public class NewsFragment extends Fragment {
 
-    ListView listView ;
+    ListView listView;
     WormNews data = new WormNews();
     List<Worm> wormList = new ArrayList<>();
     WormNewsEventAdapter adapter;
@@ -40,16 +41,17 @@ public class NewsFragment extends Fragment {
 
         init(view);
         requestGetWormNews();
-        adapter = new WormNewsEventAdapter(wormList,getContext());
+        adapter = new WormNewsEventAdapter(wormList, getContext());
         listView.setAdapter(adapter);
         return view;
     }
-    void requestGetWormNews(){
+
+    void requestGetWormNews() {
         RetrofitClient.getClient().create(APIService.class)
                 .getWormNews().enqueue(new Callback<WormNews>() {
             @Override
             public void onResponse(Call<WormNews> call, Response<WormNews> response) {
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
                     Toast.makeText(getContext(), "oke", Toast.LENGTH_SHORT).show();
                     adapter.setData(response.body().getWorm());
                 }
@@ -57,11 +59,12 @@ public class NewsFragment extends Fragment {
 
             @Override
             public void onFailure(Call<WormNews> call, Throwable t) {
-                Log.d("AA", t.getMessage() );
+                Log.d("AA", t.getMessage());
                 Toast.makeText(getContext(), "Lỗi! xin thử lại", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
     private void init(View view) {
         listView = view.findViewById(R.id.list_view);
     }
