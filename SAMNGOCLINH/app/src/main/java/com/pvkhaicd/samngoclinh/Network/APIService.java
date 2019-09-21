@@ -3,6 +3,7 @@ package com.pvkhaicd.samngoclinh.Network;
 import com.pvkhaicd.samngoclinh.Model.ClimateNews;
 import com.pvkhaicd.samngoclinh.Model.MarketItem;
 import com.pvkhaicd.samngoclinh.Model.Question;
+import com.pvkhaicd.samngoclinh.Model.Weather.WeatherData;
 import com.pvkhaicd.samngoclinh.Model.WormNewsEvent.WormNews;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 
 public interface APIService {
@@ -35,5 +37,10 @@ public interface APIService {
 
     @POST("purchase_items")
     Call<MarketItem> postMarketItem(@Body MarketItem item);
+
+    interface WeatherService {
+        @GET("weather")
+        Call<WeatherData> getWeatherData(@Query("lat") double lat, @Query("lon") double lon, @Query("APPID") String api_key);
+    }
 
 }
