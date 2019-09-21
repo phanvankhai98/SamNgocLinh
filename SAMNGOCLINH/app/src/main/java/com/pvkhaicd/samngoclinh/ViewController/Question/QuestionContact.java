@@ -1,6 +1,6 @@
 package com.pvkhaicd.samngoclinh.ViewController.Question;
 
-import com.pvkhaicd.samngoclinh.Model.pojo.Question;
+import com.pvkhaicd.samngoclinh.Model.Question;
 
 import java.util.List;
 

@@ -76,7 +76,8 @@ public class ClimateFragment extends Fragment {
     }
 
     void requestGetClimateNews(){
-        RetrofitClient.getCilent().create(APIService.class)
+
+        RetrofitClient.getClient().create(APIService.class)
                 .getClimateNews().enqueue(new Callback<ClimateNews>() {
             @Override
             public void onResponse(Call<ClimateNews> call, Response<ClimateNews> response) {

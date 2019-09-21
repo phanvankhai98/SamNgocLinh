@@ -1,4 +1,4 @@
-package com.pvkhaicd.samngoclinh.Model.pojo;
+package com.pvkhaicd.samngoclinh.Model;
 
 import android.os.Parcel;
 import android.os.Parcelable;

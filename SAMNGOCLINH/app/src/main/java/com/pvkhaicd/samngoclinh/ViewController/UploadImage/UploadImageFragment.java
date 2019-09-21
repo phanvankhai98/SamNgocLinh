@@ -19,6 +19,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -51,7 +53,6 @@ public class UploadImageFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_upload_image, container, false);
         init(view);
         final StorageReference storageRef = storage.getReference();
-
 
         downLoadFile(view);
 
