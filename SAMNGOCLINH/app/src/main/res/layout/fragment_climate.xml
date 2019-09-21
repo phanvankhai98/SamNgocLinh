@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:padding="10dp"
     android:background="#ffff"
-    tools:context=".ViewController.Climate.ClimateFragment">
+    tools:context="com.pvkhaicd.samngoclinh.ViewController.Climate.ClimateFragment">
 
     <TextView
         android:layout_width="match_parent"

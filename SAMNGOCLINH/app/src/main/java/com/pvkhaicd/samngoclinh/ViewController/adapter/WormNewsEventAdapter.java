@@ -8,11 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.pvkhaicd.samngoclinh.Model.WormNewsEvent.Worm;
-import com.pvkhaicd.samngoclinh.Model.WormNewsEvent.WormNews;
 import com.pvkhaicd.samngoclinh.R;
-import com.pvkhaicd.samngoclinh.ViewController.Worm.NewsFragment;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class WormNewsEventAdapter extends BaseAdapter {

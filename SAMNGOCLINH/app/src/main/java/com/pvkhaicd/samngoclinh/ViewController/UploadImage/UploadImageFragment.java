@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.provider.MediaStore;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.ListResult;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.pvkhaicd.samngoclinh.R;
@@ -36,6 +38,7 @@ public class UploadImageFragment extends Fragment {
     ImageView imgTakePhoto;
     Button btnSave;
     FirebaseStorage storage = FirebaseStorage.getInstance("gs://samngoclinh-959da.appspot.com/");
+
     public UploadImageFragment() {
         // Required empty public constructor
     }
@@ -50,13 +53,13 @@ public class UploadImageFragment extends Fragment {
         final StorageReference storageRef = storage.getReference();
 
 
-
+        downLoadFile(view);
 
         imgTakePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent,1);
+                startActivityForResult(intent, 1);
                 if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
                     startActivityForResult(intent, 1);
                 }
@@ -66,10 +69,9 @@ public class UploadImageFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Calendar calendar = Calendar.getInstance();
-                StorageReference mountainsRef = storageRef.child("image"+calendar.getTimeInMillis()+".png");
+                StorageReference mountainsRef = storageRef.child("image" + calendar.getTimeInMillis() + ".png");
                 StorageReference mountainImagesRef = storageRef.child("images/mountains.jpg");
 
-// While the file names are the same, the references point to different files
                 mountainsRef.getName().equals(mountainImagesRef.getName());    // true
                 mountainsRef.getPath().equals(mountainImagesRef.getPath());    // false
                 imgTakePhoto.setDrawingCacheEnabled(true);
@@ -82,7 +84,7 @@ public class UploadImageFragment extends Fragment {
                 UploadTask uploadTask = mountainsRef.putBytes(data);
                 uploadTask.addOnFailureListener(new OnFailureListener() {
                     @Override
-                    public void onFailure( Exception exception) {
+                    public void onFailure(Exception exception) {
                         // Handle unsuccessful uploads
                         Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
                     }
@@ -99,6 +101,37 @@ public class UploadImageFragment extends Fragment {
         });
         return view;
     }
+
+    private void downLoadFile(View view) {
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference listRef = storage.getReference().child("image1568543625656.png");
+        Toast.makeText(getContext(), storage.getReference().toString(), Toast.LENGTH_SHORT).show();
+        listRef.listAll()
+                .addOnSuccessListener(new OnSuccessListener<ListResult>() {
+                    @Override
+                    public void onSuccess(ListResult listResult) {
+                        Toast.makeText(getContext(), listResult.getItems().toString(), Toast.LENGTH_SHORT).show();
+                        for (StorageReference prefix : listResult.getPrefixes()) {
+                            // All the prefixes under listRef.
+                            // You may call listAll() recursively on them.
+
+                        }
+
+                        for (StorageReference item : listResult.getItems()) {
+                            // All the items under listRef.
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Uh-oh, an error occurred!
+                        Log.d("AAA",  e.getMessage());
+//                        Toast.makeText(getContext(), "lôi r", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
 
     private void init(View view) {
         btnSave = view.findViewById(R.id.btn_save);
