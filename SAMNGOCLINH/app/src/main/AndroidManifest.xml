@@ -2,11 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pvkhaicd.samngoclinh">
 
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="true" />
-    <uses-permission android:name="android.permission.INTERNET" />
+<!--    <uses-feature-->
+<!--        android:name="android.hardware.camera"-->
+<!--        android:required="true" />-->
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="barcode"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ginseng"
@@ -14,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewController.Market.MarketPostScreen"></activity>
+        <activity android:name=".ViewController.QRScanActivity"></activity>
+        <activity android:name=".ViewController.Market.MarketPostScreen" />
         <activity android:name=".ViewController.Market.MarketDetail" />
         <activity android:name=".ViewController.Question.QuestionDetail" />
         <activity

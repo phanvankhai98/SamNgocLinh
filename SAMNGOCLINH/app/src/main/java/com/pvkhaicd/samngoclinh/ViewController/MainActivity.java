@@ -1,5 +1,6 @@
 package com.pvkhaicd.samngoclinh.ViewController;
 
+import android.content.Intent;
 import android.os.Bundle;
 import com.google.android.material.navigation.NavigationView;
 import androidx.fragment.app.Fragment;
@@ -168,7 +169,8 @@ public class MainActivity extends AppCompatActivity
                 fragment = new QuestionFragment();
                 break;
             case TAG_QR_CODE:
-                Toast.makeText(this, "Quet ma QR", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),QRScanActivity.class));
+                Toast.makeText(MainActivity.this, "Quet ma QR", Toast.LENGTH_SHORT).show();
                 break;
             default:
 
