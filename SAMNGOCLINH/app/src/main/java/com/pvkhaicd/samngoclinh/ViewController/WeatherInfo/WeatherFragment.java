@@ -6,6 +6,7 @@ import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -64,10 +65,10 @@ public class WeatherFragment extends Fragment implements OnMapReadyCallback {
                 FragmentManager fragmentManager = getChildFragmentManager();
                 WeatherDetailDialog weatherDetailDialog = new WeatherDetailDialog();
                 Bundle bundle = new Bundle();
-                bundle.putParcelable("weather",mWeatherData);
-                bundle.putString("city_name",markedName);
+                bundle.putParcelable("weather", mWeatherData);
+                bundle.putString("city_name", markedName);
                 weatherDetailDialog.setArguments(bundle);
-                weatherDetailDialog.show(fragmentManager,"weather");
+                weatherDetailDialog.show(fragmentManager, "weather");
             }
         });
         return view;
@@ -82,15 +83,22 @@ public class WeatherFragment extends Fragment implements OnMapReadyCallback {
         searchView.setQueryHint("Search for address");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public boolean onQueryTextSubmit(String s) {
-                try {
-                    geoLocate(s);
-                    hideKeyboardFrom(getContext(),searchView);
-                    searchView.clearFocus();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    return false;
-                }
+            public boolean onQueryTextSubmit(final String s) {
+                Log.d("test", "onQueryTextSubmit: " + s);
+                new Handler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            geoLocate(s);
+                            hideKeyboardFrom(getContext(), searchView);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
+
+                searchView.clearFocus();
                 return true;
             }
 
@@ -136,7 +144,7 @@ public class WeatherFragment extends Fragment implements OnMapReadyCallback {
 
             @Override
             public void onFailure(Call<WeatherData> call, Throwable t) {
-                Log.d("test", "onFailure: "+ t.getMessage());
+                Log.d("test", "onFailure: " + t.getMessage());
             }
         });
     }
@@ -150,12 +158,81 @@ public class WeatherFragment extends Fragment implements OnMapReadyCallback {
                 .bearing(0)
                 .tilt(45)
                 .build();
-        mGoogleMap.animateCamera(CameraUpdateFactory.newCameraPosition(googlePlex), 10000, null);
+        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mLatLngDefault, 15f));
         mGoogleMap.addMarker(new MarkerOptions().position(mLatLngDefault).title("Hoi An"));
         setWeatherDetail(mLatLngDefault.latitude, mLatLngDefault.longitude);
+
+        //
+
+//        try {
+//            LatLng latLng = getLatLng(getLocationFormGoogle("Hoi An"));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
+
     public static void hideKeyboardFrom(Context context, View view) {
         InputMethodManager imm = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
+// cannot user is method to fix google map exception: java.io.IOException: Service not Available
+// to fix now need to restart device
+
+//    public JSONObject getLocationFormGoogle(String placesName) throws IOException {
+//        URL url = new URL("https://maps.google.com/maps/api/geocode/json?address=" + placesName + "&ka&sensor=false&key=AIzaSyAXs37VAiq45xmCkFM5sWlmRT5H3repR50");
+//        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+//        urlConnection.setRequestMethod("GET");
+//        urlConnection.setRequestProperty("Content-length", "");
+//        urlConnection.setUseCaches(false);
+//        urlConnection.setAllowUserInteraction(false);
+//        urlConnection.setConnectTimeout(5000);
+//        urlConnection.setReadTimeout(5000);
+//        urlConnection.connect();
+//        int status = urlConnection.getResponseCode();
+//        StringBuilder builder = new StringBuilder();
+//        if (status == 201) {
+//            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+//            String line;
+//            while ((line = bufferedReader.readLine()) != null) {
+//                builder.append(line + "\n");
+//            }
+//            bufferedReader.close();
+//        }
+//
+//
+//        JSONObject jsonObject = new JSONObject();
+//        try {
+//            jsonObject = new JSONObject(builder.toString());
+//        } catch (JSONException e) {
+//
+//            e.printStackTrace();
+//        }
+//
+//        return jsonObject;
+//    }
+//
+//    public LatLng getLatLng(JSONObject jsonObject) {
+//
+//        Double lon = new Double(0);
+//        Double lat = new Double(0);
+//
+//        try {
+//
+//            lon = ((JSONArray) jsonObject.get("results")).getJSONObject(0)
+//                    .getJSONObject("geometry").getJSONObject("location")
+//                    .getDouble("lng");
+//
+//            lat = ((JSONArray) jsonObject.get("results")).getJSONObject(0)
+//                    .getJSONObject("geometry").getJSONObject("location")
+//                    .getDouble("lat");
+//
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return new LatLng(lat, lon);
+//
+//    }
+
+
 }
