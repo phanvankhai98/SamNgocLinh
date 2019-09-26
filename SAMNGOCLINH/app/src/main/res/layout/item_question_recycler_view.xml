@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Question"
-            android:textSize="@dimen/sp_20"
+            android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -42,6 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_1"
             android:text="@string/demo_question_date"
+            android:textColor="@color/black"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_question_status" />
 
@@ -51,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_1"
             android:text="@string/publisher_name"
+            android:textColor="@color/black"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_date_time" />
 
@@ -60,6 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_5"
             android:text="Hoang Quoc Trung"
+            android:textColor="@color/black"
             app:layout_constraintLeft_toRightOf="@id/text_publisher_title"
             app:layout_constraintTop_toBottomOf="@id/text_date_time" />
     </androidx.constraintlayout.widget.ConstraintLayout>

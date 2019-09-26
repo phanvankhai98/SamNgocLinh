@@ -14,6 +14,11 @@ import com.pvkhaicd.samngoclinh.Model.MarketItem;
 import com.pvkhaicd.samngoclinh.Network.APIService;
 import com.pvkhaicd.samngoclinh.Network.RetrofitClient;
 import com.pvkhaicd.samngoclinh.R;
+import com.pvkhaicd.samngoclinh.ViewController.splash.SessionManager;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -99,12 +104,19 @@ public class MarketPostScreen extends AppCompatActivity {
             mEditTextWeight.setError(getResources().getString(R.string.error_input));
             return null;
         }
+        //user information
+        SessionManager manager = new SessionManager(this);
+        HashMap<String, String> user = manager.getUserDetail();
+        String userName = user.get(SessionManager.KEY_NAME);
+        String phone = user.get(SessionManager.KEY_PHONE_NUMBER);
 
+        // clear text input form
         mEditTextWeight.getEditText().setText("");
         mEditTextAddress.getEditText().setText("");
         mEditTextCost.getEditText().setText("");
         mEditTextCounty.getEditText().setText("");
         mEditTextCost.clearFocus();
-        return new MarketItem("phone", weight, cost, address, "time", county, "publisher");
+        String timeStamp = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
+        return new MarketItem(phone, weight, cost, address, timeStamp, county, userName);
     }
 }

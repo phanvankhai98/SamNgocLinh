@@ -43,5 +43,6 @@
 
     <!--market post news -->
     <string name="error_input">Trường này không được để trống</string>
+    <string name="title_plash">Chào mừng bạn đền với dịch vụ thông tin sâm ngọc linh</string>
 
 </resources>
