@@ -1,11 +1,10 @@
-package com.pvkhaicd.samngoclinh.ViewController.WeatherInfo;
+package com.pvkhaicd.samngoclinh.ViewController.General;
 
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -13,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-import com.pvkhaicd.samngoclinh.Model.Weather.Weather;
 import com.pvkhaicd.samngoclinh.Model.Weather.WeatherData;
 import com.pvkhaicd.samngoclinh.R;
 

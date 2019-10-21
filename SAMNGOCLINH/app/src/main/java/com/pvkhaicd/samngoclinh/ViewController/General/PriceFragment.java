@@ -1,4 +1,4 @@
-package com.pvkhaicd.samngoclinh.ViewController.Price;
+package com.pvkhaicd.samngoclinh.ViewController.General;
 
 
 import android.os.Bundle;

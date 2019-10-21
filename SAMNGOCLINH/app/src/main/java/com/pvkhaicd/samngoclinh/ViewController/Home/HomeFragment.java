@@ -2,8 +2,12 @@ package com.pvkhaicd.samngoclinh.ViewController.Home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,14 +29,20 @@ public class HomeFragment extends Fragment implements OnItemClickListener {
     private OnHomeItemClickListener mOnHomeItemClickListener;
     private RecyclerView mRecyclerViewHome;
     private HomeAdapter mHomeAdapter;
+    private ViewFlipper mViewFlipper;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        setHasOptionsMenu(true);
         mRecyclerViewHome = view.findViewById(R.id.recycler_home);
-        mHomeAdapter = new HomeAdapter(getContext(), createListHome());
-        mRecyclerViewHome.setLayoutManager(new GridLayoutManager(getContext(), 3));
+        mViewFlipper = view.findViewById(R.id.view_flipper);
+        setUpViewFlipper();
+        List<Home> icons = createListHome();
+        mHomeAdapter = new HomeAdapter(getContext(), icons);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+        mRecyclerViewHome.setLayoutManager(gridLayoutManager);
         mRecyclerViewHome.setAdapter(mHomeAdapter);
         mHomeAdapter.setOnItemClickListener(this);
         return view;
@@ -44,23 +54,46 @@ public class HomeFragment extends Fragment implements OnItemClickListener {
 
     private List<Home> createListHome() {
         List<Home> homes = new ArrayList<>();
-        homes.add(new Home(MainActivity.TAG_WEATHER, getResources().getString(R.string.weather), R.mipmap.weather));
-        homes.add(new Home(MainActivity.TAG_UPLOAD_IMG, getResources().getString(R.string.upload_image), R.mipmap.upload));
-        homes.add(new Home(MainActivity.TAG_FERTILIZER_ADVICE, getResources().getString(R.string.advice), R.mipmap.advice));
-        homes.add(new Home(MainActivity.TAG_CLIMATE_CHANGE, getResources().getString(R.string.climate), R.mipmap.climate));
-        homes.add(new Home(MainActivity.TAG_PRICE, getResources().getString(R.string.price), R.mipmap.price_tag));
-        homes.add(new Home(MainActivity.TAG_MARKET, getResources().getString(R.string.market), R.mipmap.market));
-        homes.add(new Home(MainActivity.TAG_PEST, getResources().getString(R.string.worm), R.mipmap.worm));
-        homes.add(new Home(MainActivity.TAG_QR_CODE, getResources().getString(R.string.scan_QR), R.mipmap.qr_scan));
-        homes.add(new Home(MainActivity.TAG_QA, getResources().getString(R.string.question), R.mipmap.question));
+        homes.add(new Home(MainActivity.TAG_NEWS, getResources().getString(R.string.news), R.drawable.icon_news_32));
+        homes.add(new Home(MainActivity.TAG_FAIR, getResources().getString(R.string.fair), R.drawable.icon_fair_32));
+        homes.add(new Home(MainActivity.TAG_ADVICE, getResources().getString(R.string.advice), R.drawable.icon_advice_32));
+        homes.add(new Home(MainActivity.TAG_DIAGNOSIS, getResources().getString(R.string.diagnosis), R.drawable.icon_diagnosis_32));
+        homes.add(new Home(MainActivity.TAG_SOURCE, getResources().getString(R.string.source), R.drawable.icon_source_32));
+        homes.add(new Home(MainActivity.TAG_QUESTION, getResources().getString(R.string.question), R.drawable.icon_question_new_32));
         return homes;
     }
 
     @Override
     public void onItemClicked(int position) {
-        if(mHomeAdapter!=null) {
+        if (mHomeAdapter != null) {
             Home home = mHomeAdapter.getData().get(position);
-            if(mOnHomeItemClickListener!=null) mOnHomeItemClickListener.onHomeItemClick(home.getTagName());
+            if (mOnHomeItemClickListener != null)
+                mOnHomeItemClickListener.onHomeItemClick(home.getTagName());
         }
+    }
+
+    private void setUpViewFlipper() {
+        int[] image = new int[]{R.drawable.slide1, R.drawable.slide2, R.drawable.slide3};
+        for (Integer id : image) {
+            addImage(id);
+        }
+
+    }
+
+    private void addImage(int id) {
+        ImageView imageView = new ImageView(getContext());
+        imageView.setBackgroundResource(id);
+        mViewFlipper.addView(imageView);
+        mViewFlipper.setFlipInterval(4000);
+        mViewFlipper.setAutoStart(true);
+        mViewFlipper.setInAnimation(getContext(), android.R.anim.slide_in_left);
+        mViewFlipper.setOutAnimation(getContext(), android.R.anim.slide_out_right);
+
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_home, menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 }

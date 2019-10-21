@@ -17,15 +17,15 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
 import com.pvkhaicd.samngoclinh.R;
-import com.pvkhaicd.samngoclinh.ViewController.Advice.AdviceFragment;
 import com.pvkhaicd.samngoclinh.ViewController.Climate.ClimateFragment;
+import com.pvkhaicd.samngoclinh.ViewController.General.GeneralFragment;
+import com.pvkhaicd.samngoclinh.ViewController.General.PriceFragment;
+import com.pvkhaicd.samngoclinh.ViewController.Handbook.HandbookFragment;
 import com.pvkhaicd.samngoclinh.ViewController.Home.HomeFragment;
 import com.pvkhaicd.samngoclinh.ViewController.Home.OnHomeItemClickListener;
 import com.pvkhaicd.samngoclinh.ViewController.Market.MarketFragment;
-import com.pvkhaicd.samngoclinh.ViewController.Price.PriceFragment;
 import com.pvkhaicd.samngoclinh.ViewController.Question.QuestionFragment;
 import com.pvkhaicd.samngoclinh.ViewController.UploadImage.UploadImageFragment;
-import com.pvkhaicd.samngoclinh.ViewController.WeatherInfo.WeatherFragment;
 import com.pvkhaicd.samngoclinh.ViewController.Worm.WormFragment;
 import com.pvkhaicd.samngoclinh.ViewController.splash.SessionManager;
 
@@ -41,12 +41,12 @@ public class MainActivity extends AppCompatActivity
 
     private Map<String, String> mToolbarTitle;
     public static final String TAG_HOME = "home";
-    public static final String TAG_WEATHER = "weather";
-    public static final String TAG_UPLOAD_IMG = "upload";
-    public static final String TAG_FERTILIZER_ADVICE = "fertilizer";
-    public static final String TAG_CLIMATE_CHANGE = "climate";
-    public static final String TAG_MARKET = "market";
-    public static final String TAG_PRICE = "price";
+    public static final String TAG_NEWS = "weather";
+    public static final String TAG_FAIR = "upload";
+    public static final String TAG_ADVICE = "fertilizer";
+    public static final String TAG_DIAGNOSIS = "climate";
+    public static final String TAG_QUESTION = "market";
+    public static final String TAG_SOURCE = "price";
     public static final String TAG_PEST = "pest";
     public static final String TAG_QA = "qa";
     public static final String TAG_QR_CODE = "qr code";
@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(mToolbar);
         mDrawerLayout = findViewById(R.id.drawer_layout);
         mNavigationView = findViewById(R.id.nav_view);
+        mNavigationView.setItemIconTintList(null);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, mDrawerLayout, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         mDrawerLayout.addDrawerListener(toggle);
@@ -78,6 +79,11 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
+        if (!mCurrentTag.equals(TAG_HOME)) {
+            mCurrentTag = TAG_HOME;
+            loadFragment(mCurrentTag);
+            return;
+        }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -108,31 +114,22 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         switch (id) {
             case R.id.nav_weather:
-                mCurrentTag = TAG_WEATHER;
+                mCurrentTag = TAG_NEWS;
                 break;
             case R.id.nav_upload:
-                mCurrentTag = TAG_UPLOAD_IMG;
+                mCurrentTag = TAG_FAIR;
                 break;
             case R.id.nav_advice:
-                mCurrentTag = TAG_FERTILIZER_ADVICE;
+                mCurrentTag = TAG_ADVICE;
                 break;
             case R.id.nav_climate:
-                mCurrentTag = TAG_CLIMATE_CHANGE;
+                mCurrentTag = TAG_DIAGNOSIS;
                 break;
             case R.id.nav_price:
-                mCurrentTag = TAG_PRICE;
-                break;
-            case R.id.nav_buy:
-                mCurrentTag = TAG_MARKET;
-                break;
-            case R.id.nav_worm:
-                mCurrentTag = TAG_PEST;
+                mCurrentTag = TAG_SOURCE;
                 break;
             case R.id.nav_question_answer:
                 mCurrentTag = TAG_QA;
-                break;
-            case R.id.nav_scan_qr:
-                mCurrentTag = TAG_QR_CODE;
                 break;
             case R.id.nav_logout:
                 handlerLogout();
@@ -148,6 +145,7 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = getFragment(tag);
         if (fragment == null) return;
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
         fragmentTransaction.replace(R.id.frame, fragment, tag);
         fragmentTransaction.commit();
         setToolbarTitle();
@@ -157,22 +155,22 @@ public class MainActivity extends AppCompatActivity
     private Fragment getFragment(String tag) {
         Fragment fragment = null;
         switch (tag) {
-            case TAG_WEATHER:
-                fragment = new WeatherFragment();
+            case TAG_NEWS:
+                fragment = new GeneralFragment();
                 break;
-            case TAG_UPLOAD_IMG:
+            case TAG_FAIR:
                 fragment = new UploadImageFragment();
                 break;
-            case TAG_FERTILIZER_ADVICE:
-                fragment = new AdviceFragment();
+            case TAG_ADVICE:
+                fragment = new HandbookFragment();
                 break;
-            case TAG_CLIMATE_CHANGE:
+            case TAG_DIAGNOSIS:
                 fragment = new ClimateFragment();
                 break;
-            case TAG_MARKET:
+            case TAG_QUESTION:
                 fragment = new MarketFragment();
                 break;
-            case TAG_PRICE:
+            case TAG_SOURCE:
                 fragment = new PriceFragment();
                 break;
             case TAG_PEST:
@@ -204,19 +202,21 @@ public class MainActivity extends AppCompatActivity
     private void getToolbarTitle() {
         mToolbarTitle = new HashMap<>();
         mToolbarTitle.put(TAG_HOME, getResources().getString(R.string.app_name));
-        mToolbarTitle.put(TAG_MARKET, getResources().getString(R.string.market));
-        mToolbarTitle.put(TAG_WEATHER, getResources().getString(R.string.weather));
-        mToolbarTitle.put(TAG_UPLOAD_IMG, getResources().getString(R.string.upload_image));
-        mToolbarTitle.put(TAG_FERTILIZER_ADVICE, getResources().getString(R.string.advice));
-        mToolbarTitle.put(TAG_CLIMATE_CHANGE, getResources().getString(R.string.climate));
-        mToolbarTitle.put(TAG_PRICE, getResources().getString(R.string.price));
-        mToolbarTitle.put(TAG_PEST, getResources().getString(R.string.price));
+        mToolbarTitle.put(TAG_QUESTION, getResources().getString(R.string.market));
+        mToolbarTitle.put(TAG_NEWS, getResources().getString(R.string.news));
+        mToolbarTitle.put(TAG_FAIR, getResources().getString(R.string.fair));
+        mToolbarTitle.put(TAG_ADVICE, getResources().getString(R.string.advice));
+        mToolbarTitle.put(TAG_DIAGNOSIS, getResources().getString(R.string.diagnosis));
+        mToolbarTitle.put(TAG_SOURCE, getResources().getString(R.string.source));
+        mToolbarTitle.put(TAG_PEST, getResources().getString(R.string.source));
         mToolbarTitle.put(TAG_QA, getResources().getString(R.string.question));
         mToolbarTitle.put(TAG_QR_CODE, getResources().getString(R.string.scan_QR));
     }
 
     private void setToolbarTitle() {
-        getSupportActionBar().setTitle(mToolbarTitle.get(mCurrentTag));
+        getSupportActionBar().setTitle(null);
+        TextView title = mToolbar.findViewById(R.id.title);
+        title.setText(mToolbarTitle.get(mCurrentTag));
     }
 
     private void setUpUserData() {
@@ -248,4 +248,5 @@ public class MainActivity extends AppCompatActivity
         mCurrentTag = tag;
         loadFragment(tag);
     }
+
 }

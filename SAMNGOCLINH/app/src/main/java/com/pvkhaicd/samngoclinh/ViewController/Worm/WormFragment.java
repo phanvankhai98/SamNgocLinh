@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.pvkhaicd.samngoclinh.R;
 import com.pvkhaicd.samngoclinh.ViewController.Adapter.WormPagerApdapter;
+import com.pvkhaicd.samngoclinh.ViewController.General.NewsFragment;
 
 import java.util.ArrayList;
 
