@@ -1,4 +1,4 @@
-package com.pvkhaicd.samngoclinh.ViewController.WeatherInfo;
+package com.pvkhaicd.samngoclinh.ViewController.General;
 
 
 import android.app.Activity;
@@ -50,6 +50,9 @@ public class WeatherFragment extends Fragment implements OnMapReadyCallback {
     private WeatherData mWeatherData = null;
     private ImageView mImageViewWeatherDetail;
     private String markedName = "Hoi An";
+
+    public WeatherFragment() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

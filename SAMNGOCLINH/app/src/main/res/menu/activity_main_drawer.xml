@@ -5,40 +5,28 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_weather"
-            android:icon="@mipmap/weather"
-            android:title="@string/weather" />
+            android:icon="@drawable/icon_news_32"
+            android:title="@string/news" />
         <item
             android:id="@+id/nav_upload"
-            android:icon="@mipmap/upload"
-            android:title="@string/upload_image" />
+            android:icon="@drawable/icon_fair_32"
+            android:title="@string/fair" />
         <item
             android:id="@+id/nav_advice"
-            android:icon="@mipmap/advice"
+            android:icon="@drawable/icon_advice_32"
             android:title="@string/advice" />
         <item
             android:id="@+id/nav_climate"
-            android:icon="@mipmap/climate"
-            android:title="@string/climate" />
+            android:icon="@drawable/icon_diagnosis_32"
+            android:title="@string/diagnosis" />
         <item
             android:id="@+id/nav_price"
-            android:icon="@mipmap/price_tag"
-            android:title="@string/price" />
-        <item
-            android:id="@+id/nav_buy"
-            android:icon="@mipmap/market"
-            android:title="@string/market" />
-        <item
-            android:id="@+id/nav_worm"
-            android:icon="@mipmap/worm"
-            android:title="@string/worm" />
+            android:icon="@drawable/icon_source_32"
+            android:title="@string/source" />
         <item
             android:id="@+id/nav_question_answer"
-            android:icon="@mipmap/question"
+            android:icon="@drawable/icon_question_new_32"
             android:title="@string/question" />
-        <item
-            android:id="@+id/nav_scan_qr"
-            android:icon="@mipmap/qr_scan"
-            android:title="@string/scan_QR" />
         <item
             android:id="@+id/nav_logout"
             android:icon="@mipmap/logout"

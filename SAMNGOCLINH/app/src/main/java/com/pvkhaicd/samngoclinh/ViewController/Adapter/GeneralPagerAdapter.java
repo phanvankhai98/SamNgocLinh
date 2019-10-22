@@ -1,33 +1,33 @@
-package com.pvkhaicd.samngoclinh.ViewController.Adapter.market;
+package com.pvkhaicd.samngoclinh.ViewController.Adapter;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.pvkhaicd.samngoclinh.R;
-
 import java.util.List;
 
-public class MarketPagerAdapter extends FragmentStatePagerAdapter {
+public class GeneralPagerAdapter extends FragmentStatePagerAdapter {
 
     private Context mContext;
     private List<Fragment> mFragments;
     private String[] mTitle;
 
-    public MarketPagerAdapter(FragmentManager fm, Context context, List<Fragment> fragments) {
-        super(fm,BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+    public GeneralPagerAdapter(@NonNull FragmentManager fm, Context context, List<Fragment> fragments, String[] title) {
+        super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         mContext = context;
         mFragments = fragments;
-        mTitle = new String[]{mContext.getResources().getString(R.string.title_purchase),
-                mContext.getResources().getString(R.string.title_sell)};
+        mTitle = title;
     }
 
+    @NonNull
     @Override
-    public Fragment getItem(int i) {
-        return mFragments.get(i);
+    public Fragment getItem(int position) {
+        return mFragments.get(position);
+
     }
 
     @Override
@@ -41,3 +41,4 @@ public class MarketPagerAdapter extends FragmentStatePagerAdapter {
         return mTitle[position];
     }
 }
+

@@ -3,17 +3,50 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/colorPrimaryLight"
     android:layout_height="match_parent"
+    android:background="#e0e0e0"
+    android:padding="@dimen/dp_5"
     tools:context="com.pvkhaicd.samngoclinh.ViewController.MainActivity">
+
+    <ViewFlipper
+        android:id="@+id/view_flipper"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="@dimen/dp_1"
+        android:background="@drawable/background"
+        android:padding="2dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_home"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintBottom_toTopOf="@+id/footer"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_flipper" />
+
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="@dimen/dp_10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="@dimen/dp_5"
+            android:text="PTIT - 2019"
+            android:textColor="@color/black" />
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

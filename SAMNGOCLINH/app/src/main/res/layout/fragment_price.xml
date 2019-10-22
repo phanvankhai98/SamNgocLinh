@@ -1,14 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.pvkhaicd.samngoclinh.ViewController.Price.PriceFragment">
+    android:background="@color/white"
+    android:padding="@dimen/dp_10"
+    android:orientation="vertical"
+    tools:context=".ViewController.General.PriceFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/price" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="@string/text_price"
+        android:textSize="17sp"/>
 
-</FrameLayout>
+    <TableLayout
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#CCCCCC"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Loại"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Tuổi thông thường"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Giá"
+                android:textColor="#000000" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="20 củ/kg"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="4-6 năm"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="25 - 30 triệu đồng/kg"
+                android:textColor="#000000" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="10 củ/kg"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="10 năm"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="35 - 40 triệu đồng/kg"
+                android:textColor="#000000" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="5-7 củ/kg"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="15 năm"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="45 - 50 triệu đồng/kg"
+                android:textColor="#000000" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

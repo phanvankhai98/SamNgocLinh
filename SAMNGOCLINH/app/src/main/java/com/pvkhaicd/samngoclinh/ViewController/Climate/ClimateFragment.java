@@ -82,6 +82,7 @@ public class ClimateFragment extends Fragment {
             @Override
             public void onResponse(Call<ClimateNews> call, Response<ClimateNews> response) {
                 if(response.isSuccessful()){
+                    listTitle.clear();
                     arrayList = response.body().getClimate();
                     for (int i = 0; i <arrayList.size() ; i++) {
                         listTitle.add(arrayList.get(i).getTitle());

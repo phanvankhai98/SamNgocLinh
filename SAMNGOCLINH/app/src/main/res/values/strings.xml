@@ -16,14 +16,14 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="weather">Thông tin thời tiết</string>
-    <string name="upload_image">Upload ảnh</string>
-    <string name="advice">Tư vấn sử dụng phân bón</string>
-    <string name="climate">Biến đổi khí hậu</string>
-    <string name="price">Giá sâm ngọc linh</string>
+    <string name="news">Thông tin thường thức</string>
+    <string name="fair">Hội chợ sâm</string>
+    <string name="advice">Tài liệu cẩm nang</string>
+    <string name="diagnosis">Chuẩn đoán tính trạng cây</string>
+    <string name="source">Truy xuất nguồn gốc</string>
     <string name="market">Mua bán sâm</string>
     <string name="worm">Sâu bệnh</string>
-    <string name="question">Hỏi đáp</string>
+    <string name="question">Hỏi đáp trực tuyến</string>
     <string name="scan_QR">Mã QR</string>
     <string name="logout">Đăng xuất</string>
 
@@ -44,5 +44,7 @@
     <!--market post news -->
     <string name="error_input">Trường này không được để trống</string>
     <string name="title_plash">Chào mừng bạn đền với dịch vụ thông tin sâm ngọc linh</string>
+    <string name="text_hint">Chào mừng bạn tới với ứng dụng thông tin về cây sâm ngọc linh</string>
+    <string name="text_price">Theo kết quả nghiên cứu của bộ y tế, Sâm ngọc linh Việt Nam là loài sâm có saponin cao nhất trong tất cả các loài sâm hiện nay, ngoài 26 loại saponin thường thấy thì còn có 26 saponin có cấu trúc mới khác mà các loại sâm khác không hề có. Chínhvì vậy, không chỉ người dùng Việt Nam, mà ngay cả các nước như Hàn Quốc, Nhật Bản – vốn là xứ sở của Sâm cũng có nhiều người tìm đến để mua cho bằng được loại Sâm Ngọc Linh này, mặc dù giá sâm ngọc linh Viêt Nam cao hơn gấp nhiều lần so với sâm Hàn Quốc, Nhật Bản hay Triều Tiên. Bên cạnh đó, việc khai thác quá mức cạn kiệt, đến nối chính phủ phải ra quyết định thành lập vùng cấm quốc gia khu vực Sâm ngọc linh mọc ở vùng núi Kon Tum và Quảng Nam, cũng là nguyên nhân khiến giá sâm ngày càng cao.</string>
 
 </resources>

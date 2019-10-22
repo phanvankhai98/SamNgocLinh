@@ -1,4 +1,4 @@
-package com.pvkhaicd.samngoclinh.ViewController.Advice;
+package com.pvkhaicd.samngoclinh.ViewController.General;
 
 
 import android.os.Build;
