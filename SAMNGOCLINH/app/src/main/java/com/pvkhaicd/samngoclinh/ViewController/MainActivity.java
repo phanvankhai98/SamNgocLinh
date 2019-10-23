@@ -18,12 +18,14 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.navigation.NavigationView;
 import com.pvkhaicd.samngoclinh.R;
 import com.pvkhaicd.samngoclinh.ViewController.Climate.ClimateFragment;
+import com.pvkhaicd.samngoclinh.ViewController.Climate.FairFragment;
 import com.pvkhaicd.samngoclinh.ViewController.General.GeneralFragment;
 import com.pvkhaicd.samngoclinh.ViewController.General.PriceFragment;
 import com.pvkhaicd.samngoclinh.ViewController.Handbook.HandbookFragment;
 import com.pvkhaicd.samngoclinh.ViewController.Home.HomeFragment;
 import com.pvkhaicd.samngoclinh.ViewController.Home.OnHomeItemClickListener;
 import com.pvkhaicd.samngoclinh.ViewController.Market.MarketFragment;
+import com.pvkhaicd.samngoclinh.ViewController.Question.MainQuestionFragment;
 import com.pvkhaicd.samngoclinh.ViewController.Question.QuestionFragment;
 import com.pvkhaicd.samngoclinh.ViewController.UploadImage.UploadImageFragment;
 import com.pvkhaicd.samngoclinh.ViewController.Worm.WormFragment;
@@ -126,7 +128,7 @@ public class MainActivity extends AppCompatActivity
                 mCurrentTag = TAG_DIAGNOSIS;
                 break;
             case R.id.nav_price:
-                mCurrentTag = TAG_SOURCE;
+                startActivity(new Intent(MainActivity.this,QRScanActivity.class));
                 break;
             case R.id.nav_question_answer:
                 mCurrentTag = TAG_QA;
@@ -159,13 +161,13 @@ public class MainActivity extends AppCompatActivity
                 fragment = new GeneralFragment();
                 break;
             case TAG_FAIR:
-                fragment = new UploadImageFragment();
+                fragment = new FairFragment();
                 break;
             case TAG_ADVICE:
                 fragment = new HandbookFragment();
                 break;
             case TAG_DIAGNOSIS:
-                fragment = new ClimateFragment();
+                fragment = new UploadImageFragment();
                 break;
             case TAG_QUESTION:
                 fragment = new MarketFragment();
@@ -177,7 +179,7 @@ public class MainActivity extends AppCompatActivity
                 fragment = new WormFragment();
                 break;
             case TAG_QA:
-                fragment = new QuestionFragment();
+                fragment = new MainQuestionFragment();
                 break;
             case TAG_QR_CODE:
                 startActivity(new Intent(getApplicationContext(), QRScanActivity.class));

@@ -59,7 +59,7 @@ public class HomeFragment extends Fragment implements OnItemClickListener {
         homes.add(new Home(MainActivity.TAG_ADVICE, getResources().getString(R.string.advice), R.drawable.icon_advice_32));
         homes.add(new Home(MainActivity.TAG_DIAGNOSIS, getResources().getString(R.string.diagnosis), R.drawable.icon_diagnosis_32));
         homes.add(new Home(MainActivity.TAG_SOURCE, getResources().getString(R.string.source), R.drawable.icon_source_32));
-        homes.add(new Home(MainActivity.TAG_QUESTION, getResources().getString(R.string.question), R.drawable.icon_question_new_32));
+        homes.add(new Home(MainActivity.TAG_QA, getResources().getString(R.string.question), R.drawable.icon_question_new_32));
         return homes;
     }
 

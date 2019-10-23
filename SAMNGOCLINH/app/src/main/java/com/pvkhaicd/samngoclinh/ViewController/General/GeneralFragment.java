@@ -35,6 +35,7 @@ public class GeneralFragment extends Fragment {
         mFragments.add(new AdviceFragment());
         mFragments.add(new NewsFragment());
         mFragments.add(new PriceFragment());
+
         String[] title = new String[]{"Thời tiết","Thổ nhưỡng","Tin tức","Giá"};
         mViewPager.setAdapter(new GeneralPagerAdapter(getChildFragmentManager(), getContext(), mFragments,title));
         mTabLayout.setupWithViewPager(mViewPager);
