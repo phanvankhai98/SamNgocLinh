@@ -4,11 +4,11 @@
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_weather"
+            android:id="@+id/nav_news"
             android:icon="@drawable/icon_news_32"
             android:title="@string/news" />
         <item
-            android:id="@+id/nav_upload"
+            android:id="@+id/nav_fair"
             android:icon="@drawable/icon_fair_32"
             android:title="@string/fair" />
         <item
@@ -16,11 +16,11 @@
             android:icon="@drawable/icon_advice_32"
             android:title="@string/advice" />
         <item
-            android:id="@+id/nav_climate"
+            android:id="@+id/nav_diagnosis"
             android:icon="@drawable/icon_diagnosis_32"
             android:title="@string/diagnosis" />
         <item
-            android:id="@+id/nav_price"
+            android:id="@+id/nav_source"
             android:icon="@drawable/icon_source_32"
             android:title="@string/source" />
         <item

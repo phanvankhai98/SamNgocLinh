@@ -17,18 +17,14 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
 import com.pvkhaicd.samngoclinh.R;
-import com.pvkhaicd.samngoclinh.ViewController.Climate.ClimateFragment;
 import com.pvkhaicd.samngoclinh.ViewController.Climate.FairFragment;
 import com.pvkhaicd.samngoclinh.ViewController.General.GeneralFragment;
-import com.pvkhaicd.samngoclinh.ViewController.General.PriceFragment;
 import com.pvkhaicd.samngoclinh.ViewController.Handbook.HandbookFragment;
 import com.pvkhaicd.samngoclinh.ViewController.Home.HomeFragment;
 import com.pvkhaicd.samngoclinh.ViewController.Home.OnHomeItemClickListener;
 import com.pvkhaicd.samngoclinh.ViewController.Market.MarketFragment;
 import com.pvkhaicd.samngoclinh.ViewController.Question.MainQuestionFragment;
-import com.pvkhaicd.samngoclinh.ViewController.Question.QuestionFragment;
 import com.pvkhaicd.samngoclinh.ViewController.UploadImage.UploadImageFragment;
-import com.pvkhaicd.samngoclinh.ViewController.Worm.WormFragment;
 import com.pvkhaicd.samngoclinh.ViewController.splash.SessionManager;
 
 import java.util.HashMap;
@@ -49,9 +45,7 @@ public class MainActivity extends AppCompatActivity
     public static final String TAG_DIAGNOSIS = "climate";
     public static final String TAG_QUESTION = "market";
     public static final String TAG_SOURCE = "price";
-    public static final String TAG_PEST = "pest";
     public static final String TAG_QA = "qa";
-    public static final String TAG_QR_CODE = "qr code";
     private String mCurrentTag = TAG_HOME;
 
     @Override
@@ -115,20 +109,21 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         switch (id) {
-            case R.id.nav_weather:
+            case R.id.nav_news:
                 mCurrentTag = TAG_NEWS;
                 break;
-            case R.id.nav_upload:
+            case R.id.nav_fair:
                 mCurrentTag = TAG_FAIR;
                 break;
             case R.id.nav_advice:
                 mCurrentTag = TAG_ADVICE;
                 break;
-            case R.id.nav_climate:
+            case R.id.nav_diagnosis:
                 mCurrentTag = TAG_DIAGNOSIS;
                 break;
-            case R.id.nav_price:
-                startActivity(new Intent(MainActivity.this,QRScanActivity.class));
+            case R.id.nav_source:
+                mCurrentTag = TAG_SOURCE;
+                startActivity(new Intent(MainActivity.this, QRScanActivity.class));
                 break;
             case R.id.nav_question_answer:
                 mCurrentTag = TAG_QA;
@@ -173,17 +168,11 @@ public class MainActivity extends AppCompatActivity
                 fragment = new MarketFragment();
                 break;
             case TAG_SOURCE:
-                fragment = new PriceFragment();
-                break;
-            case TAG_PEST:
-                fragment = new WormFragment();
+                startActivity(new Intent(getApplicationContext(), QRScanActivity.class));
+                Toast.makeText(MainActivity.this, "Quet ma QR", Toast.LENGTH_SHORT).show();
                 break;
             case TAG_QA:
                 fragment = new MainQuestionFragment();
-                break;
-            case TAG_QR_CODE:
-                startActivity(new Intent(getApplicationContext(), QRScanActivity.class));
-                Toast.makeText(MainActivity.this, "Quet ma QR", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 fragment = new HomeFragment();
@@ -210,9 +199,7 @@ public class MainActivity extends AppCompatActivity
         mToolbarTitle.put(TAG_ADVICE, getResources().getString(R.string.advice));
         mToolbarTitle.put(TAG_DIAGNOSIS, getResources().getString(R.string.diagnosis));
         mToolbarTitle.put(TAG_SOURCE, getResources().getString(R.string.source));
-        mToolbarTitle.put(TAG_PEST, getResources().getString(R.string.source));
         mToolbarTitle.put(TAG_QA, getResources().getString(R.string.question));
-        mToolbarTitle.put(TAG_QR_CODE, getResources().getString(R.string.scan_QR));
     }
 
     private void setToolbarTitle() {
